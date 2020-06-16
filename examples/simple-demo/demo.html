@@ -10,10 +10,10 @@
         <script src="../../lib/ambrosusSDK.umd.min.js"></script>
         <script>
             var ambrosus = new AmbrosusSDK({
-                apiEndpoint: 'https://hermes.ambrosus-test.com'
+                apiEndpoint: 'https://test-nop.ambrosus-test.com'
             })
 
-            ambrosus.assets.getAsset('0x6904151c80b33a26925bf940b061c7d365dee013f468adc555d6c699dc0e3b79')
+            ambrosus.assets.getAsset('0x878bc5dfb6bd0e384924737c0f71f131db1f68921b5f8b7c3153dd76a8c98c70')
                 .then(function(response) {
                     console.log(response);
                 }).catch(function(error) {
