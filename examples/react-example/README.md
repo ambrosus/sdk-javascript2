@@ -8,8 +8,8 @@ SDK Example to Fetch Asset and resulting events for the asset by passing the ass
 
 ## Usage 
 
-Install the node dependencies using `npm install`
+Install the node dependencies using `yarn install`
 
-Run `npm run start` to serve the example
+Run `yarn start` to serve the example
 
 Once the build completes, head over to `http://localhost:8080/` in your favourite browser
