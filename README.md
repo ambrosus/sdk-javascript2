@@ -67,7 +67,7 @@ Initializing SDK to create assets and events.
 ```javascript
 ambrosus = new AmbrosusSDK({
   secret: '0x6823520c03ad7b17....',
-  apiEndpoint: 'https://hermetest-nop.ambrosus-test.com',
+  apiEndpoint: 'https://test-nop.ambrosus-test.com',
 });
 ```
 We can initialize the SDK by directly providing the authorization header, so that secret key will not be required for creating assets and events
@@ -76,7 +76,7 @@ const ambrosus = new AmbrosusSDK({
   headers: {
     Authorization: 'AMB ....',
   },
-  apiEndpoint: 'https://hermetest-nop.ambrosus-test.com',
+  apiEndpoint: 'https://test-nop.ambrosus-test.com',
 });
 ```
 Initializing SDK to work with the blockchain network.
