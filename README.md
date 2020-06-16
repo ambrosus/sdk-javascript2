@@ -53,7 +53,7 @@ The ideal way to pass the properties is using the environment variables.
 |Property    | Type | Defination | Example. |
 |---|---|---|---|
 |secret      | string | Secret key you received in email.| 0x6823520c03ad7b17....|
-|rpcURL      | string | RPC URL of the blockchain network. | https://network.ambrosus-dev.com |
+|rpcURL      | string | RPC URL of the blockchain network. | https://network.ambrosus-test.com |
 |apiEndpoint | string | Hermes API url. | https://test-nop.ambrosus-test.com |
 |headeres | object | header object for api request | {Authorization: 'AMB ....'}|
 
