@@ -14,7 +14,7 @@ class App extends Component {
     };
 
     this.ambrosus = new AmbrosusSDK({
-      apiEndpoint: 'https://hermes.ambrosus-test.com'
+      apiEndpoint: 'https://test-nop.ambrosus-test.com'
     });
 
   }
