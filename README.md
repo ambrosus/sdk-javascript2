@@ -54,20 +54,20 @@ The ideal way to pass the properties is using the environment variables.
 |---|---|---|---|
 |secret      | string | Secret key you received in email.| 0x6823520c03ad7b17....|
 |rpcURL      | string | RPC URL of the blockchain network. | https://network.ambrosus-dev.com |
-|apiEndpoint | string | Hermes API url. | https://hermes.ambrosus-test.com |
+|apiEndpoint | string | Hermes API url. | https://test-nop.ambrosus-test.com |
 |headeres | object | header object for api request | {Authorization: 'AMB ....'}|
 
 Intializing SDK to request or querying data.
 ```javascript
 const ambrosus = new AmbrosusSDK({
-  apiEndpoint: 'https://hermes.ambrosus-test.com',
+  apiEndpoint: 'https://test-nop.ambrosus-test.com',
 });
 ```
 Initializing SDK to create assets and events.
 ```javascript
 ambrosus = new AmbrosusSDK({
   secret: '0x6823520c03ad7b17....',
-  apiEndpoint: 'https://hermes.ambrosus-test.com',
+  apiEndpoint: 'https://hermetest-nop.ambrosus-test.com',
 });
 ```
 We can initialize the SDK by directly providing the authorization header, so that secret key will not be required for creating assets and events
@@ -76,13 +76,13 @@ const ambrosus = new AmbrosusSDK({
   headers: {
     Authorization: 'AMB ....',
   },
-  apiEndpoint: 'https://hermes.ambrosus-test.com',
+  apiEndpoint: 'https://hermetest-nop.ambrosus-test.com',
 });
 ```
 Initializing SDK to work with the blockchain network.
 ```javascript
 ambrosus = new AmbrosusSDK({
-  rpcURL: 'https://network.ambrosus-dev.com',
+  rpcURL: 'https://network.ambrosus-test.com',
   secret: '0x6823520c03ad7b17....',
 });
 ```
