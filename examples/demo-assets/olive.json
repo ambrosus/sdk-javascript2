@@ -1,0 +1,88 @@
+[
+    {
+      "content": {
+        "idData": {
+          "assetId": "{{assetId}}",
+          "createdBy": "{{userAddress}}",
+          "accessLevel": 0,
+          "timestamp": 1527674478
+        },
+        "data": [
+          {
+            "type": "ambrosus.asset.info",
+            "name": "Olio Extra Vergine Di Olivia",
+            "assetType": "ambrosus.assetTypes.batch",
+            "images": {
+              "default": {
+                "url": "https://preview.ibb.co/jxJ4L8/Monini_Copie.jpg"
+              }
+            },
+            "size": "500mL",
+            "Product Information": {
+              "ingredients": "Extra Virgin Oil",
+              "Brand": "Monini"
+            },
+            "Batch Information": {
+              "Origin": "Italy"
+            }
+          },
+          {
+            "type": "ambrosus.asset.identifiers",
+            "identifiers": {
+              "RFID": [
+                "E2004BA5F9256470018E4590"
+              ],
+              "EAN13": [
+                "80053828"
+              ],
+              "Lot": [
+                "L12PZ"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "content": {
+        "idData": {
+          "assetId": "{{assetId}}",
+          "createdBy": "{{userAddress}}",
+          "accessLevel": 0,
+          "timestamp": 1507118532
+        },
+        "data": [
+          {
+            "type": "ambrosus.asset.harvested",
+            "name": "Olives Harvested",
+            "images": {
+              "default": {
+                "url": "https://d3n5tkprdfxpgx.cloudfront.net/wp-content/uploads/2013/12/JordanTourOliveHarvest221.jpg"
+              }
+            },
+            "Harvest Information": {
+              "Total volume": "170 kg",
+              "Harvest Date": "12.12.2016"
+            }
+          },
+          {
+            "type": "ambrosus.event.location",
+            "location": {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  43.6809175,
+                  11.6317353
+                ]
+              }
+            },
+            "name": "Toscana",
+            "city": "Toscana",
+            "country": "Italy",
+            "locationId": "809c578721b74cae1d56504594819285"
+          }
+        ]
+      }
+    }
+  ]

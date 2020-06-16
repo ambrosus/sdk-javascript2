@@ -1,0 +1,42 @@
+[{
+  "content": {
+    "idData": {
+      "assetId": "{{assetId}}",
+      "createdBy": "{{createdBy}}",
+      "accessLevel": 0,
+      "timestamp": 1528298909.412
+    },
+    "data": [{
+        "type": "ambrosus.asset.identifier",
+        "identifiers": {
+          "GTIN": [
+            "123"
+          ],
+          "QR": [
+            "1234"
+          ],
+          "DATAMATRIX": [
+            "12345"
+          ]
+        }
+      },
+      {
+        "type": "ambrosus.asset.info",
+        "name": "Apples",
+        "description": "A fruit, description of apples and banana",
+        "assetType": "food",
+        "images": {
+          "default": {
+            "url": "https://madecasse.com/wp-content/uploads/2016/10/92-dark-chocolate-hero-2.jpg"
+          }
+        },
+        "Production data": "01/03/2018",
+        "Kind": "green",
+        "group": {
+          "property1": "value1",
+          "property2": "value2"
+        }
+      }
+    ]
+  }
+}]

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Ambrosus Asset Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://amb.to/assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://amb.to/assets/favicons/favicon-16x16.png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <script src='../js/web3.min.js'></script>
+  <script src="./../../lib/ambrosusSDK.umd.min.js"></script>
+</head>
+<style>
+  .container-pad {
+    margin-top: 50px;
+  }
+
+  .wrap {
+    word-wrap: break-word;
+  }
+</style>
+
+<body>
+  <div class="container container-pad">
+    <h1>
+      Ambrosus Viewer 🔭
+    </h1>
+    <div class="container-pad">
+      <div class="form-group">
+        <label for="usr">Asset ID:</label>
+        <input type="text" id="assetId" name="assetId" placeholder="Enter Asset Address" value="0x46debb0de0e1ce401da205aa1522df7911488651089e9c5e360802decf1d987d"
+          class="form-control">
+      </div>
+      <br>
+      <div>
+        <button onclick="findAsset()" type="button">Submit</button>
+      </div>
+      <div class="container-pad bottom-pad">
+        <h4 name="processing" id="processing"></h4>
+        <br>
+        <div class="wrap">
+          <pre><p name="assetResponse" id="assetResponse"></p></pre>
+        </div>
+        <h4 name="event" id="event"></h4>
+        <br>
+        <div class="wrap">
+          <pre><p name="eventResponse" id="eventResponse"></p></pre>
+        </div>
+        <br>
+        <h4 name="ambTo" id="ambTo"></h4>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var ambrosus = new AmbrosusSDK({
+      apiEndpoint: 'https://hermes.ambrosus-test.com'
+    });
+
+    function findAsset() {
+      var processing = document.getElementById('processing');
+      processing.innerHTML = 'Processing . . .';
+      var assetResponse = document.getElementById('assetResponse');
+      var assetId = document.getElementById('assetId').value;
+      ambrosus.assets.getAsset(assetId)
+        .then(function (response) {
+          console.log(response);
+          assetResponse.innerHTML = JSON.stringify(response, null, "  ");
+          processing.innerHTML = '';
+          getEvents(assetId);
+        })
+        .catch(function (error) {
+          assetResponse.innerHTML = JSON.stringify(error, null, "  ");
+        });
+    }
+
+    function getEvents(assetId) {
+      ambrosus.events.getEvents({
+          assetId: assetId
+        })
+        .then(function (response2) {
+          document.getElementById("event").innerHTML = 'Events for Asset ID: ' + assetId;
+          var eventResponse = document.getElementById('eventResponse').value;
+          console.log('Events for the asset: ');
+          document.getElementById("eventResponse").innerHTML = JSON.stringify(response2, null, "  ");
+          console.log(response2);
+          parseEvents(response2.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+
+    function parseEvents(eventsArray) {
+      console.log(eventsArray);
+      ambrosus.events.parseEvents(eventsArray)
+        .then(function (parsedEvents) {
+          console.log(parsedEvents);
+        }).catch(function (error) {
+          console.log(error);
+        });
+    }
+  </script>
+
+</body>
+
+</html>

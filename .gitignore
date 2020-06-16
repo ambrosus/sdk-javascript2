@@ -1,0 +1,13 @@
+dist/
+lib/
+es/
+node_modules/
+generated-docs/
+npm-debug.log
+.DS_Store
+*.swp
+examples/json-importer/index-vlad.html
+.nyc_output
+coverage
+out
+.jsbeautifyrc

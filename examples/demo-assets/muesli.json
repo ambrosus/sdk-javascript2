@@ -1,0 +1,263 @@
+[
+    {
+      "content": {
+        "idData": {
+          "assetId": "{{assetId}}",
+          "createdBy": "{{userAddress}}",
+          "accessLevel": 0,
+          "timestamp": 1524824701
+        },
+        "data": [
+          {
+            "type": "ambrosus.event.location",
+            "location": {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  46.521284,
+                  6.627953
+                ]
+              }
+            },
+            "name": "Migros Lausanne-Flon",
+            "city": "Lausanne",
+            "country": "Switzerland",
+            "locationId": "ChIJDUte93TLDWsRLZ_EIhGvgBc"
+          },
+          {
+            "type": "ambrosus.event.quality",
+            "responsible": "Migros Lausanne-Flon",
+            "results": "good"
+          }
+        ]
+      }
+    },
+    {
+      "content": {
+        "idData": {
+          "assetId": "{{assetId}}",
+          "createdBy": "{{userAddress}}",
+          "accessLevel": 0,
+          "timestamp": 1524219901
+        },
+        "data": [
+          {
+            "type": "ambrosus.event.transport",
+            "Transport Information": {
+              "category": "Truck",
+              "company": "Migros"
+            }
+          },
+          {
+            "type": "ambrosus.event.ride",
+            "location": {
+              "type": "Feature",
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    47.308075,
+                    7.78288
+                  ],
+                  [
+                    46.521284,
+                    6.627953
+                  ]
+                ]
+              }
+            },
+            "origin": {
+              "name": "Migros Distribution center",
+              "city": "Neuendorf",
+              "country": "Switzerland",
+              "locationId": "ChIJDUte93TLDWsRLZ_EIhGvgBc"
+            },
+            "destination": {
+              "name": "Migros Lausanne-Flon",
+              "city": "Lausanne",
+              "country": "Switzerland",
+              "locationId": "ChIJDUte93TLDWsRLZ_EIhGvgBc"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "content": {
+        "idData": {
+          "assetId": "{{assetId}}",
+          "createdBy": "{{userAddress}}",
+          "accessLevel": 0,
+          "timestamp": 1519817101
+        },
+        "data": [
+          {
+            "type": "ambrosus.event.location",
+            "location": {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  47.308075,
+                  7.78288
+                ]
+              }
+            },
+            "name": "Cerealia AG",
+            "city": "Mattersburg",
+            "country": "Austria",
+            "locationId": "ChIJN5a5PSIybEcRbUXhc7riHGA"
+          },
+          {
+            "type": "ambrosus.event.quality",
+            "responsible": "Cerealia AG",
+            "results": "good"
+          }
+        ]
+      }
+    },
+    {
+      "content": {
+        "idData": {
+          "assetId": "{{assetId}}",
+          "createdBy": "{{userAddress}}",
+          "accessLevel": 0,
+          "timestamp": 1519385101
+        },
+        "data": [
+          {
+            "type": "ambrosus.event.transport",
+            "Transport Information": {
+              "category": "Train",
+              "company": "Planzer"
+            }
+          },
+          {
+            "type": "ambrosus.event.ride",
+            "location": {
+              "type": "Feature",
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    47.7208437,
+                    16.3042851
+                  ],
+                  [
+                    47.308075,
+                    7.78288
+                  ]
+                ]
+              }
+            },
+            "origin": {
+              "name": "Cerealia AG",
+              "city": "Mattersburg",
+              "country": "Austria",
+              "locationId": "ChIJN5a5PSIybEcRbUXhc7riHGA"
+            },
+            "desination": {
+              "name": "Migros Distribution center",
+              "city": "Neuendorf",
+              "country": "Switzerland",
+              "locationId": "ChIJDUte93TLDWsRLZ_EIhGvgBc"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "content": {
+        "idData": {
+          "assetId": "{{assetId}}",
+          "createdBy": "{{userAddress}}",
+          "accessLevel": 0,
+          "timestamp": 1519302301
+        },
+        "data": [
+          {
+            "type": "ambrosus.event.location",
+            "location": {
+              "type": "Feature",
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  47.7208437,
+                  16.3042851
+                ]
+              }
+            },
+            "name": "Cerealia AG",
+            "city": "Mattersburg",
+            "country": "Austria",
+            "locationId": "ChIJN5a5PSIybEcRbUXhc7riHGA"
+          },
+          {
+            "type": "ambrosus.event.quality",
+            "responsible": "Cerealia AG",
+            "results": "good"
+          }
+        ]
+      }
+    },
+    {
+      "content": {
+        "idData": {
+          "assetId": "{{assetId}}",
+          "createdBy": "{{userAddress}}",
+          "accessLevel": 0,
+          "timestamp": 1519298701
+        },
+        "data": [
+          {
+            "type": "ambrosus.asset.info",
+            "name": "Bio Famer Müesli aux graines d'antan",
+            "assetType": "ambrosus.assetTypes.batch",
+            "size": "500g",
+            "images": {
+              "default": {
+                "url": "https://image.ibb.co/n9koad/bio_farmer_urkorn_mueesli.jpg"
+              },
+              "logo": {
+                "Brand": "https://image.ibb.co/dakM5o/farmer_logo.jpg",
+                "Certification": "https://image.ibb.co/chHjQo/bitmap.png"
+              }
+            },
+            "documents": {
+              "websites": {
+                "Brand": "https://www.migros.ch/fr/acheter/marques-propres-et-labels/farmer.html",
+                "Certification": "https://bio.migros.ch/fr.html"
+              }
+            },
+            "Product Information": {
+              "Brand": "Farmer",
+              "Origin": "Austria",
+              "Contact": "Migros",
+              "Certification": "Migros Bio",
+              "Ingredients": "17%,Flakes of starch, 14%,whole spelled flakes, 12% multicolour rye flakes, 10% Kamut flakes, 8% apricots",
+              "Storage": "Store in a cool and dry place",
+              "Roaster": "Cerealia AG",
+              "Roasting location": "Mattersburg,Austria"
+            }
+          },
+          {
+            "type": "ambrosus.asset.identifiers",
+            "identifiers": {
+              "Serial number": "104230600000",
+              "GTIN": [
+                "7613312109434",
+                "7613312109441"
+              ],
+              "Lot": [
+                "M 345762"
+              ],
+              "EAN13": [
+                "7613312109434"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]

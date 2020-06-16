@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Ambrosus Importer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/png" sizes="32x32" href="https://amb.to/assets/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="https://amb.to/assets/favicons/favicon-16x16.png">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+        <div class="container container-pad">
+            <h1>
+                Ambrosus Importer
+            </h1>
+            <div class="container-pad">
+                <div class="form-group">
+                    <label for="usr">Secret Key:</label>
+                    <input type="text" id="secret" name="secret" placeholder="Secret Key" value="0x690a9595073699b832f ... 252612c4d378e1215b66d0f5a" class="form-control">
+                </div>
+                <br>
+                <div>
+                    <label for="file">Choose a JSON file to upload</label>
+                    <input type="file" id="file" accept=".json" name="file" multiple>
+                </div>
+                <br>
+                <hr>
+                <br>
+                <div>
+                    <button onclick="uploadFile()" type="button">Submit</button>
+                </div>
+
+                <div class="container-pad bottom-pad">
+                    <h4 name="processing" id="processing"></h4>
+                    <h4 name="assetInfo" id="assetInfo"></h4>
+                    <pre><p name="assetResponse" id="assetResponse"></p></pre>
+                    <br>
+                    <div class="container">
+                        <pre><ul name="eventInfo" id="eventInfo" class="list-group"></ul></pre>
+                    </div>
+                    <h4 name="ambTo" id="ambTo"></h4>
+                </div>
+            </div>
+        </div>
+        <script src='./web3.min.js'></script>
+        <script src="./../../lib/ambrosusSDK.umd.min.js"></script>
+        <script type="text/javascript">
+            var ambrosus;
+
+            function uploadFile() {
+                var files = document.getElementById('file').files;
+                var secret = document.getElementById('secret').value;
+                if (files.length <= 0) {
+                    alert('Please upload a JSON file');
+                    return false;
+                }
+
+                var processing = document.getElementById('processing');
+                processing.innerHTML = 'Processing . . .';
+
+                var fr = new FileReader();
+                fr.onload = function(e) {
+                    var assetDetails = JSON.parse(e.target.result);
+                    init(secret, `null`, assetDetails);
+                }
+                fr.readAsText(files.item(0));
+            }
+
+            function init(secret, address, assetDetails) {
+
+                ambrosus = new AmbrosusSDK({
+                    apiEndpoint: 'https://hermes.ambrosus-test.com',
+                    secret: secret,
+                });
+                console.log('created');
+                createAsset(assetDetails);
+            }
+
+            function bulkCreate(assetDetails) {
+                ambrosus.assets.createAsset(assetDetails)
+                    .then(function(response) {
+                        console.log(response);
+                        processing.innerHTML = '';
+                        assetInfo.style.color = '#00cc00';
+                        assetInfo.innerHTML = 'Asset ID Created ' + response.data.assetId + '<br><br> Creating Events ... <br>';
+                        assetResponse.innerHTML = '<div style="word-wrap: break-word;"><button data-toggle="collapse" data-target="#assetRes">View JSON Response</button><div id="assetRes" class="collapse">' + JSON.stringify(response, null, "   ") + '</div></div>';
+                        initEventCreation(assetDetails, response.data.assetId);
+                    }).catch(function(error) {
+                        processing.innerHTML = '';
+                        assetInfo.style.color = '#b80000';
+                        assetInfo.innerHTML = error.message;
+                    });
+            }
+
+            function createAsset(assetDetails) {
+                const data = [];
+                var assetInfo = document.getElementById('assetInfo');
+                var assetResponse = document.getElementById('assetResponse');
+                ambrosus.assets.createAsset(data)
+                    .then(function(response) {
+                        console.log(response);
+                        processing.innerHTML = '';
+                        assetInfo.style.color = '#00cc00';
+                        assetInfo.innerHTML = 'Asset ID Created ' + response.data.assetId + '<br><br> Creating Events ... <br>';
+                        assetResponse.innerHTML = '<div style="word-wrap: break-word;"><button data-toggle="collapse" data-target="#assetRes">View JSON Response</button><div id="assetRes" class="collapse">' + JSON.stringify(response, null, "   ") + '</div></div>';
+                        initEventCreation(assetDetails, response.data.assetId);
+                    }).catch(function(error) {
+                        processing.innerHTML = '';
+                        assetInfo.style.color = '#b80000';
+                        assetInfo.innerHTML = error.message;
+                    });
+            }
+
+            function initEventCreation(assetDetails, assetId) {
+                console.log('Asset ID: ' + assetId);
+                for (let i = 0; i < assetDetails.length; i++) {
+                    var eventInfo = document.getElementById('eventInfo');
+                    eventInfo.innerHTML = '';
+                    createEvent(assetDetails[i], assetId);
+                }
+                assetInfo.innerHTML = 'Asset ID Created ' + assetId + '.<br><br>';
+                var ambTo = document.getElementById('ambTo');
+                const ambToLink = '<br> Import Completed <br><br> <a target="_blank" href="https://amb.to/' + assetId + '"> View asset on Amb.to </a>';
+                ambTo.innerHTML = ambToLink;
+            }
+
+            function createEvent(assetDetails, assetId) {
+                ambrosus.events.createEvent(assetId, assetDetails)
+                    .then(function(response) {
+                        const eventId = response.data.eventId;
+                        console.log(response);
+                        eventInfo.innerHTML = eventInfo.innerHTML + '<li class="list-group-item"> Event Created: ' + eventId + '<div style="padding-left: 10px; word-wrap: break-word;"><button data-toggle="collapse" data-target="#eventRes' + eventId + '">View JSON Response</button><div id="eventRes' + eventId + '" class="collapse">' + JSON.stringify(response.data, null, "   ") + '</div></div></li>';
+                    })
+                    .catch(function(error) {
+                        console.log(error);
+                        eventInfo.innerHTML = eventInfo.innerHTML + '<li class="list-group-item"> Event Creation Failed: ' + error.message + '</li>';
+                    });
+            }
+
+        </script>
+
+    </body>
+
+</html>

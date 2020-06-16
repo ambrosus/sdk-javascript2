@@ -1,0 +1,22 @@
+{
+  "name": "ambrosus-javascript-sdk",
+  "description": "Client SDK to simplify connecting to the Ambrosus API",
+  "main": "lib/ambrosus.js",
+  "authors": ["Ambrosus"],
+  "moduleType": ["amd", "globals", "node", "es6"],
+  "license": "ISC",
+  "keywords": ["Ambrosus <info@ambrosus.com>"],
+  "homepage": "https://ambrosus.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "examples",
+    ".travis.yml"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ambrosus/sdk-javascript.git"
+  }
+}
