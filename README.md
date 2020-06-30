@@ -4,7 +4,7 @@
 
 <!-- BADGES -->
 
-[![Build Status](https://travis-ci.com/ambrosus/sdk-javascript.svg?branch=master)](https://travis-ci.com/ambrosus/sdk-javascript) [![Coverage Status](https://img.shields.io/badge/coverage-93%25-brightgreen.svg)](https://github.com/ambrosus/sdk-javascript)
+[![Build Status](https://travis-ci.com/ambrosus/sdk-javascript2.svg?branch=master)](https://travis-ci.com/ambrosus/sdk-javascript2) [![Coverage Status](https://img.shields.io/badge/coverage-93%25-brightgreen.svg)](https://github.com/ambrosus/sdk-javascript2)
 
 <!-- END BADGES -->
 
@@ -22,7 +22,7 @@ Library for simple interaction with Ambrosus API.
 ## Prerequisite
 
 In order to use Ambrosus SDK, first you _need to have a developers account_.\
-You can [apply for one here](https://selfservice-test.ambrosus.com/create).
+You can [apply for one here](https://test.ambrosus.com/dashboard).
 
 Ambrosus team will send you an email with your account **address** and **secret** key.
 
@@ -102,7 +102,7 @@ Please refer to project's code style guidelines and guidelines for submitting pa
 
 NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
-It is mandatory to follow our code of conduct described in [CONTRIBUTING.md](https://github.com/ambrosus/sdk-javascript/blob/master/CONTRIBUTING.md).
+It is mandatory to follow our code of conduct described in [CONTRIBUTING.md](https://github.com/ambrosus/sdk-javascript2/blob/master/CONTRIBUTING.md).
 
 ## API Coverage
 
