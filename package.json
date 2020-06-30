@@ -1,6 +1,6 @@
 {
     "name": "ambrosus-javascript-sdk",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "description": "Client SDK to simplify connecting to the Ambrosus API",
     "main": "lib/ambrosus.cjs.min.js",
     "module": "lib/ambrosus.umd.min.js",
