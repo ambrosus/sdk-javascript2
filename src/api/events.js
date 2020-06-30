@@ -39,7 +39,7 @@ class Events {
             }
 
             getRequest(
-                `${this._settings.apiEndpoint}/event2/list/?assteId=${encodeURIComponent(assetId)}`,
+                `${this._settings.apiEndpoint}/event2/list/?assetId=${encodeURIComponent(assetId)}`,
                 this._settings.headers
             )
                 .then(response => resolve(response))
