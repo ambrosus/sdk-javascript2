@@ -11,18 +11,30 @@ program
     );
 
 program
-    .command('initialize')
-    .alias('create')
-    .description('Initialize SDK')
+    .command('load_asset')
+    .alias('load')
+    .description('Load Asset')
     .action(() => {
         if (process.argv.length > 3) {
-            initializeSdk(process.argv[3]);
-          } else {
+            loadAsset(process.argv[3]);
+        } else {
             console.log('Usage: node cli-importer.js create <asset filename>');
-          }        
+        }        
     });
 
-initializeSdk = async (fileName) => {
+program
+    .command('load_raw')
+    .alias('raw')
+    .description('Load Raw Asset')
+    .action(() => {
+      if (process.argv.length > 4) {
+            loadRaw(process.argv[3], process.argv[4]);
+        } else {
+            console.log('Usage: node cli-importer.js raw <asset template> <raw data file>');
+        }
+    });
+
+loadAsset = async (fileName) => {
     global.ambrosus = new AmbrosusSDK({
         apiEndpoint: 'https://test-nop.ambrosus-test.com',
         secret: '0x2cf5e631b91b3f8c57c6a0205a22c06a4c073c24528bd0d6fc5b4da49612d26b'
@@ -33,6 +45,37 @@ initializeSdk = async (fileName) => {
 
         assetInfo = JSON.parse(data);
 
+        var resAsset = await ambrosus.assets.createAsset(assetInfo);
+
+        console.log(`createAsset.assetId: ${resAsset.data.data.assetId}`);
+
+        await createEvents(assetInfo, resAsset.data.data.assetId);
+
+        await verifyEvents(resAsset.data.data.assetId);
+    }
+};
+
+loadRaw = async (assetFile, rawFile) => {
+    global.ambrosus = new AmbrosusSDK({
+        apiEndpoint: 'https://test-nop.ambrosus-test.com',
+        secret: '0x2cf5e631b91b3f8c57c6a0205a22c06a4c073c24528bd0d6fc5b4da49612d26b'
+    });
+    
+    if (readExtension(assetFile)) {
+        assetJSON = await ambrosus.utils.readFile(process.cwd() + '/' + assetFile);
+
+        assetInfo = JSON.parse(assetJSON);
+
+        rawData = await ambrosus.utils.readFile(process.cwd() + '/' + rawFile);
+
+        rawBase64 = new Buffer(rawData).toString('base64');
+        
+        assetInfo[0].content.data[1].raws = {
+            raw01: {
+             data: rawBase64
+            }
+        }
+        
         var resAsset = await ambrosus.assets.createAsset(assetInfo);
 
         console.log(`createAsset.assetId: ${resAsset.data.data.assetId}`);
