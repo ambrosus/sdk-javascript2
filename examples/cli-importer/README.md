@@ -14,4 +14,4 @@ You can create your own json file or simply test the example - chocolate.json in
 
 Make sure you have your secret key and account address to use the CLI tool
 
-run `node cli-importer.js create ./../demo-assets/chocolate.json`
+run `node cli-importer.js load ./../demo-assets/chocolate.json`
