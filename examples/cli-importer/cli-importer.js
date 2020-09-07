@@ -36,7 +36,7 @@ program
 
 loadAsset = async (fileName) => {
     global.ambrosus = new AmbrosusSDK({
-        apiEndpoint: 'https://test-nop.ambrosus-test.com',
+        apiEndpoint: 'https://test-nop.ambrosus-test.io',
         secret: '0x2cf5e631b91b3f8c57c6a0205a22c06a4c073c24528bd0d6fc5b4da49612d26b'
     });
     
@@ -57,7 +57,7 @@ loadAsset = async (fileName) => {
 
 loadRaw = async (assetFile, rawFile) => {
     global.ambrosus = new AmbrosusSDK({
-        apiEndpoint: 'https://test-nop.ambrosus-test.com',
+        apiEndpoint: 'http://127.0.0.1:3000',
         secret: '0x2cf5e631b91b3f8c57c6a0205a22c06a4c073c24528bd0d6fc5b4da49612d26b'
     });
     
@@ -72,6 +72,15 @@ loadRaw = async (assetFile, rawFile) => {
         
         assetInfo[0].content.data[1].raws = {
             raw01: {
+             data: rawBase64
+            },
+            raw02: {
+             data: rawBase64
+            },
+            raw03: {
+             data: rawBase64
+            },
+            raw04: {
              data: rawBase64
             }
         }

@@ -43,7 +43,7 @@ It is mandatory to follow our code of conduct described in [CONTRIBUTING.md](htt
 ## Prerequisite
 
 In order to use Ambrosus SDK, first you _need to have a developers account_.\
-You can [apply for one here](https://selfservice-test.ambrosus.com/create).
+You can [apply for one here](https://test.ambrosus.io/create).
 
 Ambrosus team will send you an email with your account **address** and **secret** key.
 
@@ -90,7 +90,7 @@ You can initialise the SDK like -
 
 ```js
 var ambrosus = new AmbrosusSDK({
-  apiEndpoint: 'https://hermes.ambrosus-test.com',
+  apiEndpoint: 'https://hermes.ambrosus-test.io',
 });
 ```
 

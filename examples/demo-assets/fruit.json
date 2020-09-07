@@ -3,7 +3,7 @@
     "idData": {
       "assetId": "{{assetId}}",
       "createdBy": "{{createdBy}}",
-      "accessLevel": 0,
+      "accessLevel": 100,
       "timestamp": 1528298909.412
     },
     "data": [{

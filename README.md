@@ -22,7 +22,7 @@ Library for simple interaction with Ambrosus API.
 ## Prerequisite
 
 In order to use Ambrosus SDK, first you _need to have a developers account_.\
-You can [apply for one here](https://test.ambrosus.com/dashboard).
+You can [apply for one here](https://test.ambrosus.io/dashboard).
 
 Ambrosus team will send you an email with your account **address** and **secret** key.
 
@@ -53,21 +53,21 @@ The ideal way to pass the properties is using the environment variables.
 |Property    | Type | Defination | Example. |
 |---|---|---|---|
 |secret      | string | Secret key you received in email.| 0x6823520c03ad7b17....|
-|rpcURL      | string | RPC URL of the blockchain network. | https://network.ambrosus-test.com |
-|apiEndpoint | string | Hermes API url. | https://test-nop.ambrosus-test.com |
+|rpcURL      | string | RPC URL of the blockchain network. | https://network.ambrosus-test.io |
+|apiEndpoint | string | Hermes API url. | https://test-nop.ambrosus-test.io |
 |headeres | object | header object for api request | {Authorization: 'AMB ....'}|
 
 Intializing SDK to request or querying data.
 ```javascript
 const ambrosus = new AmbrosusSDK({
-  apiEndpoint: 'https://test-nop.ambrosus-test.com',
+  apiEndpoint: 'https://test-nop.ambrosus-test.io',
 });
 ```
 Initializing SDK to create assets and events.
 ```javascript
 ambrosus = new AmbrosusSDK({
   secret: '0x6823520c03ad7b17....',
-  apiEndpoint: 'https://test-nop.ambrosus-test.com',
+  apiEndpoint: 'https://test-nop.ambrosus-test.io',
 });
 ```
 We can initialize the SDK by directly providing the authorization header, so that secret key will not be required for creating assets and events
@@ -76,13 +76,13 @@ const ambrosus = new AmbrosusSDK({
   headers: {
     Authorization: 'AMB ....',
   },
-  apiEndpoint: 'https://test-nop.ambrosus-test.com',
+  apiEndpoint: 'https://test-nop.ambrosus-test.io',
 });
 ```
 Initializing SDK to work with the blockchain network.
 ```javascript
 ambrosus = new AmbrosusSDK({
-  rpcURL: 'https://network.ambrosus-test.com',
+  rpcURL: 'https://network.ambrosus-test.io',
   secret: '0x6823520c03ad7b17....',
 });
 ```

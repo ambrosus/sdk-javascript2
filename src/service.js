@@ -1,6 +1,6 @@
 /**
  * Copyright 2018 Ambrosus Inc.
- * Email: tech@ambrosus.com
+ * Email: tech@ambrosus.io
  */
 
 import utils from './utils/index';
