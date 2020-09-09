@@ -5,8 +5,8 @@
   "authors": ["Ambrosus"],
   "moduleType": ["amd", "globals", "node", "es6"],
   "license": "ISC",
-  "keywords": ["Ambrosus <info@ambrosus.com>"],
-  "homepage": "https://ambrosus.com",
+  "keywords": ["Ambrosus <info@ambrosus.io>"],
+  "homepage": "https://ambrosus.io",
   "ignore": [
     "**/.*",
     "node_modules",
